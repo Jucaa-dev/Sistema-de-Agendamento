@@ -17,13 +17,27 @@ sequenceDiagram
   B->>B: Valida aptidão
 
 alt Usuário apto
+  %% AGENDAMENTO
   B-->>S: Libera agendamento
-  U->>S: Escolhe data
+  U->>S: Escolhe data e local
   S->>B: Envia agendamento
   B->>D: Salva agendamento
   B-->>S: Confirma agendamento
   B->>S: Envia notificação de confirmação
   S-->U: Notificação exibida
+
+  %% REMARCAR
+  U->>S: Solicitação remarcação
+  S->>B: Envia nova data
+  B->>D: Atualiza agendamento
+  B-->>S: Confirmação de remarcação
+
+  %% CANCELAR
+  U->>S: Cancelar agendamento
+  S->>B: Solicita cancelamento
+  B->>D: Libera horário
+  B-->S: Cancelamento confirmado
+
 else Usuário inapto
   B-->>S: Bloqueia agendamento
 end
