@@ -1,3 +1,32 @@
+```mermaid
+flowchart TD
+
+    subgraph Login["Tela de Login"]
+        A[Logo]
+        B[Email]
+        C[Senha]
+        D[Botão: Entrar]
+        E[Link: Criar conta]
+
+        A --> B --> C --> D
+        E --> F
+    end
+
+    subgraph Cadastro["Tela de Cadastro"]
+        F[Nome]
+        G[Email]
+        H[Senha]
+        I[Confirmar Senha]
+        J[Botão: Cadastrar]
+        K[Link: Já tenho conta]
+
+        F --> G --> H --> I --> J
+        K --> B
+    end
+
+
+
+
 ## Diagrama de Sequência
 ```mermaid
 sequenceDiagram
